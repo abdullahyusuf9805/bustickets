@@ -28,9 +28,11 @@ def send_email(subject, body):
 
 def check_tickets():
     options = Options()
-    options.add_argument('--headless')
+    options.add_argument('--headless=new') # Uses Chrome's updated, stealthier headless mode
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--window-size=1920,1080') # Adds a normal screen size
+    options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36') # Pretends to be a normal Windows PC
     
     driver = webdriver.Chrome(options=options)
     wait = WebDriverWait(driver, 15)
